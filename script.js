@@ -487,6 +487,7 @@ var visibleactor = true
 console.log(actors)
 actors.forEach(showActors)
 
+/* var actorname = document.querySelectorAll("h3") */
 
 function showActors(actor) {
     const template = document.querySelector("template").content
@@ -496,7 +497,28 @@ function showActors(actor) {
     const parent = document.querySelector(".info");
     parent.appendChild(clone);
     filmPopup()
+
 }
+    
+
+  /* actorname.forEach(filmPopup)
+
+    function filmPopup(name) {
+        name.addEventListener("click", revealFilm);
+    }
+
+    function revealFilm () {
+        document.querySelector("main section").classList.remove("hidden")
+        visibleactor = false;
+        document.querySelector("main section img").addEventListener("click", closeFilm)
+    }
+    
+    function closeFilm() {
+        document.querySelector("main section").classList.add("hidden");
+        visibleactor = true;
+        filmPopup()
+} */
+
 
 
 function filmPopup () {
@@ -504,12 +526,14 @@ function filmPopup () {
     document.querySelectorAll("h3").forEach(item => {item.addEventListener("click", revealFilm)});
 }
 function revealFilm () {
+    console.log("hidden")
     document.querySelectorAll("main section").forEach(item =>{item.classList.remove("hidden")})
-    document.querySelector("main section img").addEventListener("click", closeFilm)
+    document.querySelector("img").addEventListener("click", closeFilm)
 }
 
 function closeFilm() {
-    document.querySelector("main section").classList.add("hidden");
+    console.log("works")
+    document.querySelectorAll("main section").forEach(item =>{item.classList.add("hidden")})
     visibleactor = true;
     filmPopup()
 }
