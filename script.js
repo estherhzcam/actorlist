@@ -483,8 +483,10 @@ const actors = [
 
 ]
 
+var visibleactor = true
 console.log(actors)
 actors.forEach(showActors)
+
 
 function showActors(actor) {
     const template = document.querySelector("template").content
@@ -493,6 +495,22 @@ function showActors(actor) {
     clone.querySelector(".film p").textContent = actor.movie
     const parent = document.querySelector(".info");
     parent.appendChild(clone);
+    filmPopup()
 }
 
 
+function filmPopup () {
+    if (visibleactor == true) {
+    document.querySelectorAll("h3").forEach(item => {item.addEventListener("click", revealFilm)});
+}
+function revealFilm () {
+    document.querySelectorAll("main section").forEach(item =>{item.classList.remove("hidden")})
+    document.querySelector("main section img").addEventListener("click", closeFilm)
+}
+
+function closeFilm() {
+    document.querySelector("main section").classList.add("hidden");
+    visibleactor = true;
+    filmPopup()
+}
+}
