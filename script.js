@@ -490,7 +490,7 @@ function showActors(actor) {
     const template = document.querySelector("template").content
     const clone = template.cloneNode(true);
     clone.querySelector("h3").textContent = actor.fullname
-    clone.querySelector(".film").textContent = actor.movie
+    clone.querySelector(".film p").textContent = actor.movie
     const parent = document.querySelector(".info");
     parent.appendChild(clone);
 }
